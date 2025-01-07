@@ -26,7 +26,13 @@ const registerSchema = new mongoose.Schema({
     token:{
         type:String,
         // required:true
-    }
+    },
+    resetPasswordToken: {
+        type:String,
+    },
+    resetPasswordExpires:{
+        type:Date,
+    },
 });
 
 module.exports = mongoose.model('RegisterCommerce',registerSchema);

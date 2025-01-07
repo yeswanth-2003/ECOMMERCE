@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
 const register = require('../models/registerschema');
 const jwt = require('jsonwebtoken');
-const cookieParser = require("cookie-parser");
 
 const logincreate = async (req, res) => {
     try {
@@ -16,7 +15,6 @@ const logincreate = async (req, res) => {
                 httpOnly: true,
                 secure: true,
                 sameSite: 'strict',
-                maxAge: 7 * 24 * 60 * 60 * 1000 
             });
             return res.status(201).json({ message: 'login successfully' });
         }
