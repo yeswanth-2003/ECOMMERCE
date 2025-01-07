@@ -1,34 +1,7 @@
-// const nodemailer = require('nodemailer');
 
-// // const transporter = nodemailer.createTransport({
-// //   service: 'gmail', 
-// //   auth: {
-// //     user: 'chepuriyeswanth27@gmail.com', 
-// //     pass: 'yeswa@123'  
-// //   }
-// // });
-// const transporter = nodemailer.createTransport({
-//     host: 'smtp.mailersend.net',
-//     port: 587,
-//     auth: {
-//         user: 'MS_a6SY0g@trial-yzkq34095724d796.mlsender.net',
-//         pass: 'umE5sWrQhqf8HqFA'
-//     }
-// });
-
-// const sendEmail = (to, subject, text) => {
-//   const mailOptions = {
-//     from: process.env.EMAIL_USER, 
-//     to,                            
-//     subject,                      
-//     text                           
-//   };
-
-//   return transporter.sendMail(mailOptions); 
-// };
-
-// module.exports = sendEmail;
 const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.mailersend.net',

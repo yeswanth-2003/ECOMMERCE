@@ -1,8 +1,10 @@
 const User = require('../models/registerschema');
 const bcrypt = require('bcryptjs');
 
+
 const resetpassword = async (req,res) =>{
-    const {token,newPassword} = req.body;
+    const {token}=req.params;
+    const {newPassword} = req.body;
     const hashedPassword = await bcrypt.hash(newPassword,10);
     const emailExist = await User.findOne({token});
     if(emailExist){

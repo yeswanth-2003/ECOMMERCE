@@ -13,7 +13,8 @@ ForgotPassword = async (req, res) => {
 
     await user.save();
 
-    const resetLink = `http://yourapp.com/reset-password/${token}    `;
+    // const resetLink = `http://yourapp.com/reset-password/${token}    `;
+    const resetLink = `https://ecommerce-tk0x.onrender.com/reset-password/${token}`;
     await sendEmail(user.Email, 'Password Reset', `Click here to reset: ${resetLink}`);
     res.send('Password reset link sent to your email');
 };
