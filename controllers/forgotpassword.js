@@ -14,7 +14,7 @@ ForgotPassword = async (req, res) => {
         httpOnly: true,
         secure: true,
         sameSite: 'strict',
-        maxAge: 1200000
+        maxAge: 120000 
     });
 
     await user.save();

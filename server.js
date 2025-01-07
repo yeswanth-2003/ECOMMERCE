@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 
 const RegisterRoutes = require("./routes/registerroutes");
 const ProductRoutes = require("./routes/productroutes");
+const CartRoutes = require('./routes/cartroutes')
 
 
 
@@ -22,6 +23,7 @@ app.use(cookieParser());
 
 app.use("/auth",RegisterRoutes);
 app.use("/products",ProductRoutes);
+app.use("/cart",CartRoutes)
 
 mongoose  
         .connect(process.env.MONGO_URI)
