@@ -2,13 +2,13 @@
 const CartSchema = require('../models/cartschema');
 
 const Addtocart = async (req, res) => {
-    const { _id, products: [{ name, price, quantity,images }] } = req.body;
+    const { userId, products: [{ name, price, quantity,images }] } = req.body;
 
     const subtotal = price * quantity;
 
     try {
         
-        let cart = await CartSchema.findOne({ _id });
+        let cart = await CartSchema.findOne({ userId });
 
         if (cart) {           
 
