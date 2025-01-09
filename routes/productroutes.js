@@ -6,7 +6,8 @@ const Getproducts = require('../controllers/getallitems');
 const Getsingleproduct = require('../controllers/singleproduct');
 const Update = require('../controllers/updateproduct');
 const Deleteproduct = require('../controllers/deleteproduct');
-const Additems = require('../controllers/additem');
+const Additems = require('../controllers/addproducts');
+
 
 router.get('/getproducts',Getproducts);
 router.get('/getsingleproduct/:_id',Getsingleproduct);
