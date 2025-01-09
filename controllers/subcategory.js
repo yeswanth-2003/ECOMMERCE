@@ -1,4 +1,4 @@
-const subcategory=require('../models/category');
+const subcategory=require('../models/categoryschema');
 
 const getallsubcategorys= async (req,res) => {
     try {
