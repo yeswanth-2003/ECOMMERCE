@@ -9,7 +9,7 @@ const getallcategorys = async (req, res) => {
                 result.push(category.name); 
             }
         });
-        res.status(200).json(result); 
+        res.status(200).json({ message: "Categries fetched successfully", result }); 
     } catch (error) {
         res.status(500).json({ message: "something went wrong", error });
     }
