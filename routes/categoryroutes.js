@@ -7,6 +7,6 @@ const router = express.Router()
 
 router.post('/post',Postcategory);
 router.get('/getcategory',GetCategory)
-router.get('/getsubcategory',Getsubcategories)
+router.get('/getsubcategory/:parent',Getsubcategories)
 
 module.exports = router;
