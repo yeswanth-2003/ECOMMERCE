@@ -1,9 +1,9 @@
 const CartSchema = require('../models/cartschema');
 
 const Viewcart = async (req, res) => {
-     const {_id} = req.params;
+     const {userId} = req.params;
         try {
-             const cart = await CartSchema.findOne({ _id });
+             const cart = await CartSchema.findOne({ userId });
         if (!cart || cart.length === 0) {
             return res.status(404).json({ message: 'Cart not found' });
         }

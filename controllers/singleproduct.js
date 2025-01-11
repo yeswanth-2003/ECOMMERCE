@@ -1,7 +1,7 @@
 const Products = require('../models/products');
 
 const getsingleitem = async (req,res) => {
-    const {_id} = req.params;
+    const { _id } = req.params;
     try{
         const product = await Products.findOne({_id});
         res.status(200).json({product});

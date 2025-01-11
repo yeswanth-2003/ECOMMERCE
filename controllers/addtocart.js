@@ -2,7 +2,7 @@
 const CartSchema = require('../models/cartschema');
 
 const Addtocart = async (req, res) => {
-    const { userId, products: [{ name, price, quantity,images }] } = req.body;
+    const { userId, products: [{productId,name, price, quantity,images }] } = req.body;
 
     const subtotal = price * quantity;
 
@@ -12,8 +12,8 @@ const Addtocart = async (req, res) => {
 
         if (cart) {           
 
-            const existingItem = cart.products.find(product => product.name === name);
-
+            const existingItem = cart.products.find(product => product.productId == productId);
+            
             if (existingItem) {
 
                 existingItem.quantity += 1;
@@ -21,7 +21,7 @@ const Addtocart = async (req, res) => {
 
             } else {
 
-                cart.products.push({ name, price, quantity,subtotal,images });
+                cart.products.push({productId, name, price, quantity,subtotal,images });
             }
           
             cart.totalPrice = 0;
@@ -34,9 +34,14 @@ const Addtocart = async (req, res) => {
         } else {
             
             cart = new CartSchema({
-
+                userId,
                 products: [{
-                    name, price, quantity,subtotal,images
+                    productId,
+                    name, 
+                    price, 
+                    quantity,
+                    subtotal,
+                    images
                 }],
                 totalPrice: price * quantity,
                 totalQuantity: quantity
