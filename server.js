@@ -11,7 +11,7 @@ const CartRoutes = require('./routes/cartroutes');
 const CategoryRoutes = require('./routes/categoryroutes');
 const CarouselRoutes = require('./routes/carouselroutes');
 const OrderRoutes = require('./routes/orderroutes');
-const Wishroutes = require('./routes/wishlistroutes')
+
 
 
 
