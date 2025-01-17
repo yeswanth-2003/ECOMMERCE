@@ -33,7 +33,7 @@ app.use("/cart",CartRoutes);
 app.use('/category',CategoryRoutes);
 app.use('/carousel',CarouselRoutes);
 app.use('/order',OrderRoutes);
-app.use('/wishlist',Wishroutes);
+
 
 
 mongoose  
