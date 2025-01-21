@@ -1,16 +1,16 @@
 const itemdata =require("../models/itemdata")
 
-const searchuser = async(req,res) =>{
+const searchuser = async ( req , res ) =>{
         try{
                 const {list} = req.body;
 
-                const search ={
+                const search = {
                         $or: [
-                               
+                                 
                                 {category: {$regex: list,$options:'i'}},
                                 {name: {$regex: list,$options:'i'}},
                                 {price: {$regex: list,$options:'i'}},
-                                
+                        
                         ]
                 }
 
