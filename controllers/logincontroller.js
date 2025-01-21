@@ -16,7 +16,7 @@ const logincreate = async (req, res) => {
                 secure: true,
                 sameSite: 'strict',
             });
-            return res.status(201).json({ message: 'login successfully' });
+            return res.status(201).json({ message: 'login successfully' , Token:GenerateToken});
         }
     } catch (error) {
         return res.status(500).json({ message: 'Internal server error' });
@@ -24,3 +24,27 @@ const logincreate = async (req, res) => {
 };
 
 module.exports =  logincreate ;
+
+
+
+
+
+
+
+
+
+
+
+
+// try {
+//     const token = req.cookies.auth_token;
+//     if (token) {
+//         try {
+//             const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//             if (decoded.Email === Email) {
+//                 return res.status(200).json({ message: 'Already logged in' });
+//             }
+//         } catch (err) {
+//             // Invalid token, proceed with login
+//         }
+//     }
