@@ -11,7 +11,7 @@ const CartRoutes = require('./routes/cartroutes');
 const CategoryRoutes = require('./routes/categoryroutes');
 const CarouselRoutes = require('./routes/carouselroutes');
 const OrderRoutes = require('./routes/orderroutes');
-const Wishroutes = require('./routes/wishlistroutes')
+
 
 
 
@@ -33,7 +33,7 @@ app.use("/cart",CartRoutes);
 app.use('/category',CategoryRoutes);
 app.use('/carousel',CarouselRoutes);
 app.use('/order',OrderRoutes);
-app.use('/wishlist',Wishroutes);
+
 
 
 mongoose  
