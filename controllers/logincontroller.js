@@ -10,7 +10,8 @@ const logincreate = async (req, res) => {
 
         if (!logindata || !(await bcrypt.compare(Password, logindata.Password))) {
             return res.status(400).json({ message: 'invalid email or password' });
-        } else {
+        } 
+        else {
             res.cookie('auth_token', GenerateToken, {
                 httpOnly: true,
                 secure: true,
@@ -18,33 +19,11 @@ const logincreate = async (req, res) => {
             });
             return res.status(201).json({ message: 'login successfully' , auth_token :GenerateToken , userdetails: logindata});
         }
-    } catch (error) {
+    } 
+    catch (error) {
         return res.status(500).json({ message: 'Internal server error' });
     }
 };
 
+
 module.exports =  logincreate ;
-
-
-
-
-
-
-
-
-
-
-
-
-// try {
-//     const token = req.cookies.auth_token;
-//     if (token) {
-//         try {
-//             const decoded = jwt.verify(token, process.env.JWT_SECRET);
-//             if (decoded.Email === Email) {
-//                 return res.status(200).json({ message: 'Already logged in' });
-//             }
-//         } catch (err) {
-//             // Invalid token, proceed with login
-//         }
-//     }
