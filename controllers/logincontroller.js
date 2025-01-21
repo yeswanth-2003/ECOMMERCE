@@ -16,7 +16,7 @@ const logincreate = async (req, res) => {
                 secure: true,
                 sameSite: 'strict',
             });
-            return res.status(201).json({ message: 'login successfully' , Token:GenerateToken});
+            return res.status(201).json({ message: 'login successfully' , auth_token :GenerateToken});
         }
     } catch (error) {
         return res.status(500).json({ message: 'Internal server error' });
