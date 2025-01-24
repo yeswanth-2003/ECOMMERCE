@@ -8,7 +8,7 @@ const categorysroutes=async(req,res)=>{
           name,
           parent,
           description,
-          Image,
+          Image,   
           isTopLevel,
         });
         await added.save ();
