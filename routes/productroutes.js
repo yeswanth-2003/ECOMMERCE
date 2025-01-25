@@ -8,6 +8,7 @@ const Update = require('../controllers/updateproduct');
 const Deleteproduct = require('../controllers/deleteproduct');
 const Additems = require('../controllers/addproducts');
 const Filter = require ('../controllers/filteration')
+const searchproduct=require('../controllers/search');
 
 
 
@@ -17,5 +18,7 @@ router.post('/update/:_id',Update);
 router.post('/delete/:_id',Deleteproduct);
 router.post('/add',Additems)
 router.get('/filter',Filter)
+router.post ('/search',searchproduct);
+
 
 module.exports = router;

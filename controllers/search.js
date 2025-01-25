@@ -1,32 +1,29 @@
-const itemdata =require("../models/itemdata")
+const Category = require('../models/categoryschema');
 
-const searchuser = async ( req , res ) =>{
-        try{
-                const {list} = req.body;
+const productSchema=require('../models/products');
 
-                const search = {
-                        $or: [
-                                 
-                                {category: {$regex: list,$options:'i'}},
-                                {name: {$regex: list,$options:'i'}},
-                                {price: {$regex: list,$options:'i'}},
-                        
-                        ]
-                }
+const searchproduct=async(req,res)=>{
+    try{
+        const{list}=req.body;
+        const search = {
+            $or:[
+                {name: {$regex: list,$options:'i'}},
+                {Category: {$regex:list,$options:'i'}},
+                {price: {$regex:list,$options:'i'}},
+                {brand: {$regex:list,$options:'i'}},
 
-                const searchData = await itemdata.find(search)
 
-                if(searchData.length === 0){
-                        return res.status(404).json({message: "Data not found"})
-                }
-
-                return res.status(200).json(searchData)
-
-        }catch (error) {
-                res.status(500).json({error: error})
+            ]
         }
 
-       
+        const searchdata=await productSchema.find(search)
+        if(searchdata.length===0) {
+            return res.status(404).json({message:'data not found'});
+        }
+        return res.status(201).json(searchdata)
+    }
+    catch (error){
+        res.status(500).json({error:error})
+    }
 }
-
-module.exports=searchuser
+module.exports=searchproduct
