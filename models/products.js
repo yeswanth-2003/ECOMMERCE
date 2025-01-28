@@ -2,35 +2,71 @@ const mongoose=require ('mongoose');
 const {v4: uuidv4} = require('uuid')
 
 const productSchema=new mongoose.Schema ({
-   productId:{
-      type:String,
-      default:uuidv4,
-      required:true,
-  },
    name: {
     type:String,
-    required:true,
+    require:true,
    },
+   productId:{
+         type:String,
+         default:uuidv4,
+         required:true,
+        },
    category: {
     type:String,
-    required:true,
+    require:true,
+   },
+   subcategory:{
+    type:String,
+    require:true,
+   },
+  
+   description: {
+    type:String,
+    require:true,
    },
    price: {
     type:String,
-    required:true,
+    require:true,
    },
-   description: {
+   category: {
     type:String,
-    required:true,
+    require:true,
    },
-   stock: {
+   subcategory:{
+    type:String,
+    require:true,
+   },
+   brand: {
+    type:String,
+    require:true,
+   },
+   specifications:{
+    type:Map,
+    of:String,
+   },
+   images: [{
+            image:{
+               type:String,
+               required:true,
+         },
+      }],
+   stock:{
     type:Number,
-    required:true,
+    default:0,
    },
-   images: {
-    type:String,
-    required:true,
+   rating:{
+    type:Number,
+    default:0,
+   },
+   reviews:[{
+    user:{type:mongoose.Schema.Types.ObjectId,
+        ref:'user' },
+        Comment:{type:String},
+        rating:{type:Number},
+   }],
+   createdAt:{
+    type:Date,
+    default:Date.now,
    },
 });
-
-module.exports=mongoose.model('products',productSchema);
+  module.exports=mongoose.model('products',productSchema);
